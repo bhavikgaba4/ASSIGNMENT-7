@@ -1,0 +1,79 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+class node {
+    public:
+    int data;
+    node*left;
+    node*right;
+    public:
+    node(int data){
+        this->data = data;
+        this->left = NULL;
+        this->right = NULL;
+    }
+};
+node *createbst(node *root, int d){
+    if (root==NULL){
+         root = new node (d);
+        return root;
+    }
+    if(d<root->data){
+        root->left = createbst(root->left, d);
+        return root;
+    }
+    else{
+        root->right = createbst(root->right, d);
+        return root;
+    }
+}
+node *insert(node* root){
+    cout<<"enter the data "<<endl;
+    int data ;
+    cin>>data;
+    while(data!=-1){
+        root = createbst(root, data);
+    cin>>data;
+       
+        
+    }
+    return root;
+}
+void inorder(node*root){
+    if(root==NULL)
+    return;
+    inorder(root->left);
+    cout<<root->data<<"  ";
+    inorder(root->right);
+}
+void preorder(node *root){
+    if (root == NULL)return;
+    cout<<root->data<<"  ";
+    preorder(root->left);
+    preorder(root->right);
+
+}
+void postorder(node *root){
+    if (root == NULL)return;
+    postorder(root->left);
+     cout<<root->data<<"  ";
+    postorder(root->right);
+
+}
+void binarysearch(node*root, int val){
+    if(root == NULL){
+        cout<<"element is not present",
+
+    }
+    binarysearch
+}
+
+int main() {
+  node * root = NULL;
+   root = insert(root);
+   inorder(root);
+    preorder(root);
+    postorder(root);
+    binarysearch(root, 4);
+    return 0;
+}
